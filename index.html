@@ -66,7 +66,6 @@ a { color: var(--accent); }
   color: var(--accent);
 }
 
-/* Justified, polished hero paragraph */
 .hero p.sub {
   max-width: 52ch;
   margin: 22px auto 0;
@@ -78,7 +77,6 @@ a { color: var(--accent); }
   hyphens: auto;
 }
 
-/* Prominent highlight banner for 10-member limit */
 .cohort-highlight-badge {
   display: inline-flex;
   align-items: center;
@@ -266,7 +264,6 @@ section { padding-block: 44px; }
 .offer-list li.bonus .check { background: rgba(212, 162, 76, 0.18); color: var(--gold); }
 .offer-list li .label-note { color: var(--muted); font-size: 0.86rem; display: block; margin-top: 3px; }
 
-/* Pricing block at the bottom of the checklist */
 .price-block {
   border-top: 1px solid var(--border);
   padding-top: 28px;
@@ -281,7 +278,6 @@ section { padding-block: 44px; }
   margin-bottom: 4px;
 }
 
-/* Clean serif typography without dots in zeros */
 .offer .price {
   font-family: 'Fraunces', Georgia, serif;
   font-size: clamp(2.6rem, 8vw, 3.4rem);
@@ -292,7 +288,6 @@ section { padding-block: 44px; }
 .offer .price-unit { color: var(--muted); font-size: 1rem; }
 .offer .price-note { color: var(--muted); font-size: 0.9rem; margin: 0; }
 
-/* Callout & Guarantee Cards */
 .ca-callout {
   background: rgba(212, 162, 76, 0.08);
   border: 1px dashed rgba(212, 162, 76, 0.4);
@@ -439,7 +434,6 @@ footer .contact { color: var(--fg); font-family: 'IBM Plex Mono', monospace; }
       Engineered for working professionals — engineers, doctors, and corporate executives earning up to Rs 100,000 or above — who are about to start their investment journey or find it difficult to retain consistent monthly savings. Stop leaving capital idle to inflation and build a personalized system that preserves cash flow and compounds wealth.
     </p>
 
-    <!-- Prominent scarcity highlight -->
     <div>
       <div class="cohort-highlight-badge">
         <span class="pulse-dot"></span>
@@ -659,12 +653,17 @@ footer .contact { color: var(--fg); font-family: 'IBM Plex Mono', monospace; }
     if (!name || !email || !phone || !age || !profession) return;
 
     var subject = 'Reserve my spot — Finance Made Easy (Cohort 1)';
-    var body = 'Name: ' + name + '\n'
-             + 'Age: ' + age + '\n'
-             + 'Profession: ' + profession + '\n'
-             + 'Email: ' + email + '\n'
-             + 'Phone: ' + phone + '\n\n'
-             + 'I would like to reserve my spot in Founding Cohort 1.';
+    
+    var body = 'Dear Pay Yourself First Team,\n\n'
+             + 'I would like to reserve my spot in Founding Cohort 1.\n\n'
+             + 'Here are my details:\n\n'
+             + '- Name: ' + name + '\n'
+             + '- Age: ' + age + '\n'
+             + '- Profession: ' + profession + '\n'
+             + '- Email: ' + email + '\n'
+             + '- Phone: ' + phone + '\n\n'
+             + 'Thank you,\n\n'
+             + name;
 
     var mailto = 'mailto:pay.yourself.first101@gmail.com'
       + '?subject=' + encodeURIComponent(subject)
@@ -676,7 +675,7 @@ footer .contact { color: var(--fg); font-family: 'IBM Plex Mono', monospace; }
     try {
       window.location.href = mailto;
     } catch (err) {
-      /* fallback block above already shown */
+      /* fallback block above already displayed */
     }
   });
 
