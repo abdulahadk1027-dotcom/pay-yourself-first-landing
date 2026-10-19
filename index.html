@@ -31,7 +31,7 @@ body {
 }
 
 h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; text-wrap: balance; margin: 0; }
-.mono, .price, .stat, input { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+.mono, .stat, input { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; }
 
 a { color: var(--accent); }
 
@@ -65,12 +65,46 @@ a { color: var(--accent); }
   font-style: italic;
   color: var(--accent);
 }
+
+/* Justified, polished hero paragraph */
 .hero p.sub {
   max-width: 52ch;
-  margin: 20px auto 0;
+  margin: 22px auto 0;
   color: var(--muted);
   font-size: 1.05rem;
+  line-height: 1.65;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
 }
+
+/* Prominent highlight banner for 10-member limit */
+.cohort-highlight-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(212, 162, 76, 0.12);
+  border: 1px solid rgba(212, 162, 76, 0.45);
+  border-radius: 999px;
+  padding: 9px 20px;
+  margin-top: 24px;
+  color: var(--fg);
+  font-size: 0.94rem;
+  letter-spacing: 0.01em;
+}
+.cohort-highlight-badge strong {
+  color: var(--gold);
+}
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  display: inline-block;
+  box-shadow: 0 0 8px var(--gold);
+}
+
 .hero-cta {
   margin-top: 32px;
   display: flex;
@@ -78,23 +112,6 @@ a { color: var(--accent); }
   justify-content: center;
   flex-wrap: wrap;
 }
-
-/* Audience qualification badge */
-.audience-strip {
-  margin-top: 28px;
-  padding: 12px 20px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  font-size: 0.88rem;
-  color: var(--muted);
-  line-height: 1.5;
-  display: inline-block;
-  max-width: 580px;
-  text-align: center;
-}
-.audience-strip strong { color: var(--fg); font-weight: 600; }
-.audience-strip .highlight { color: var(--accent); font-weight: 600; }
 
 /* ---------- Buttons ---------- */
 .btn {
@@ -157,14 +174,15 @@ section { padding-block: 44px; }
   min-width: 0;
 }
 .card .icon {
-  width: 38px;
-  height: 38px;
+  width: 42px;
+  height: 42px;
   border-radius: 10px;
   background: var(--surface-2);
+  border: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  color: var(--accent);
   margin-bottom: 14px;
 }
 .card h3 { font-size: 1.08rem; font-weight: 600; color: var(--fg); margin-bottom: 8px; }
@@ -262,7 +280,15 @@ section { padding-block: 44px; }
   gap: 8px;
   margin-bottom: 4px;
 }
-.offer .price { font-size: clamp(2.6rem, 8vw, 3.4rem); font-weight: 700; color: var(--fg); }
+
+/* Clean serif typography without dots in zeros */
+.offer .price {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(2.6rem, 8vw, 3.4rem);
+  font-weight: 700;
+  color: var(--fg);
+  letter-spacing: -0.01em;
+}
 .offer .price-unit { color: var(--muted); font-size: 1rem; }
 .offer .price-note { color: var(--muted); font-size: 0.9rem; margin: 0; }
 
@@ -410,21 +436,20 @@ footer .contact { color: var(--fg); font-family: 'IBM Plex Mono', monospace; }
     <span class="eyebrow">Finance Made Easy · Founding Cohort 1</span>
     <h1>Pay Yourself <em>First.</em></h1>
     <p class="sub">
-      Tailored for working professionals — engineers, doctors, and corporate executives
-      earning Rs 100,000+ monthly — who are ready to start investing with clarity or struggle
-      to retain structured savings. Strictly limited to 10 members in Cohort 1 for hands-on,
-      1-on-1 guidance.
+      Engineered for working professionals — engineers, doctors, and corporate executives earning up to Rs 100,000 or above — who are about to start their investment journey or find it difficult to retain consistent monthly savings. Stop leaving capital idle to inflation and build a personalized system that preserves cash flow and compounds wealth.
     </p>
+
+    <!-- Prominent scarcity highlight -->
+    <div>
+      <div class="cohort-highlight-badge">
+        <span class="pulse-dot"></span>
+        <span><strong>Strictly limited to 10 members in Cohort 1</strong> for hands-on, 1-on-1 guidance.</span>
+      </div>
+    </div>
+
     <div class="hero-cta">
       <a href="#join" class="btn btn-primary">Reserve my spot →</a>
       <a href="#offer" class="btn btn-ghost">See the offer</a>
-    </div>
-
-    <!-- Audience qualification strip -->
-    <div>
-      <div class="audience-strip">
-        <strong>Who this is for:</strong> Professionals earning <span class="highlight">Rs 100k+/month</span> who want to stop leaving money idle, eliminate monthly savings leaks, and build a personalized investment portfolio.
-      </div>
     </div>
   </section>
 
@@ -435,23 +460,57 @@ footer .contact { color: var(--fg); font-family: 'IBM Plex Mono', monospace; }
       <p>Not another spreadsheet. A personalized system engineered specifically around your individual financial needs and lifestyle.</p>
     </div>
     <div class="grid">
+      <!-- Card 1: Sliders SVG (Option B) -->
       <div class="card">
-        <div class="icon">🧭</div>
+        <div class="icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" y1="6" x2="20" y2="6"></line>
+            <circle cx="8" cy="6" r="2.5" fill="currentColor"></circle>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <circle cx="16" cy="12" r="2.5" fill="currentColor"></circle>
+            <line x1="4" y1="18" x2="20" y2="18"></line>
+            <circle cx="10" cy="18" r="2.5" fill="currentColor"></circle>
+          </svg>
+        </div>
         <h3>Budget guidance</h3>
         <p>We help you build a monthly budget that matches how you actually live — accommodation, utilities, fuel, food, the works — and adjust it with you as things change.</p>
       </div>
+
+      <!-- Card 2: Strategy Trendline SVG -->
       <div class="card">
-        <div class="icon">📈</div>
+        <div class="icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+            <polyline points="16 7 22 7 22 13"></polyline>
+          </svg>
+        </div>
         <h3>Investment strategy</h3>
         <p>A suggested split across equity & index funds, income funds, and foreign currency or gold reserves, sized to your risk appetite — not a generic percentage.</p>
       </div>
+
+      <!-- Card 3: Expenditure Ledger SVG -->
       <div class="card">
-        <div class="icon">🧾</div>
+        <div class="icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"></path>
+            <line x1="8" y1="7" x2="16" y2="7"></line>
+            <line x1="8" y1="11" x2="16" y2="11"></line>
+            <line x1="8" y1="15" x2="12" y2="15"></line>
+          </svg>
+        </div>
         <h3>Expenditure tracker</h3>
         <p>Log incoming cash flows and expenses with clear visibility across necessary and discretionary spending before budget overruns occur.</p>
       </div>
+
+      <!-- Card 4: Layered Stack Plates SVG (Option C) -->
       <div class="card">
-        <div class="icon">🛟</div>
+        <div class="icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m2 7 10 5 10-5-10-5-10 5Z"></path>
+            <path d="m2 12 10 5 10-5"></path>
+            <path d="m2 17 10 5 10-5"></path>
+          </svg>
+        </div>
         <h3>Savings & investment tracker</h3>
         <p>Watch your emergency fund fill up and your invested portfolio move, NAV by NAV — one place, always current.</p>
       </div>
