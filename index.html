@@ -66,7 +66,7 @@ a { color: var(--accent); }
   color: var(--accent);
 }
 .hero p.sub {
-  max-width: 46ch;
+  max-width: 52ch;
   margin: 20px auto 0;
   color: var(--muted);
   font-size: 1.05rem;
@@ -78,6 +78,23 @@ a { color: var(--accent); }
   justify-content: center;
   flex-wrap: wrap;
 }
+
+/* Audience qualification badge */
+.audience-strip {
+  margin-top: 28px;
+  padding: 12px 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.5;
+  display: inline-block;
+  max-width: 580px;
+  text-align: center;
+}
+.audience-strip strong { color: var(--fg); font-weight: 600; }
+.audience-strip .highlight { color: var(--accent); font-weight: 600; }
 
 /* ---------- Buttons ---------- */
 .btn {
@@ -108,7 +125,7 @@ a { color: var(--accent); }
 section { padding-block: 44px; }
 .section-head {
   text-align: center;
-  max-width: 50ch;
+  max-width: 52ch;
   margin: 0 auto 32px;
 }
 .section-head .eyebrow-plain {
@@ -181,28 +198,18 @@ section { padding-block: 44px; }
   background: rgba(212, 162, 76, 0.08);
   border-radius: 999px;
   padding: 6px 14px;
-  margin-bottom: 18px;
+  margin-bottom: 24px;
 }
-.offer .price-row {
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 4px;
-}
-.offer .price { font-size: clamp(2.6rem, 8vw, 3.4rem); font-weight: 700; color: var(--fg); }
-.offer .price-unit { color: var(--muted); font-size: 1rem; }
-.offer .price-note { color: var(--muted); font-size: 0.9rem; margin-bottom: 28px; }
 
 .offer-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 28px;
+  margin: 0 0 32px;
   text-align: left;
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  max-width: 440px;
+  gap: 16px;
+  max-width: 480px;
   margin-inline: auto;
 }
 .offer-list li {
@@ -211,6 +218,19 @@ section { padding-block: 44px; }
   align-items: flex-start;
   color: var(--fg);
   font-size: 0.96rem;
+}
+.offer-list li .item-content { flex: 1; }
+.offer-list li .item-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+.offer-list li .item-price {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.86rem;
+  color: var(--muted);
+  white-space: nowrap;
 }
 .offer-list li .check {
   flex-shrink: 0;
@@ -226,19 +246,63 @@ section { padding-block: 44px; }
   margin-top: 2px;
 }
 .offer-list li.bonus .check { background: rgba(212, 162, 76, 0.18); color: var(--gold); }
-.offer-list li .label-note { color: var(--muted); font-size: 0.86rem; display: block; margin-top: 2px; }
+.offer-list li .label-note { color: var(--muted); font-size: 0.86rem; display: block; margin-top: 3px; }
 
+/* Pricing block at the bottom of the checklist */
+.price-block {
+  border-top: 1px solid var(--border);
+  padding-top: 28px;
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+.offer .price-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+.offer .price { font-size: clamp(2.6rem, 8vw, 3.4rem); font-weight: 700; color: var(--fg); }
+.offer .price-unit { color: var(--muted); font-size: 1rem; }
+.offer .price-note { color: var(--muted); font-size: 0.9rem; margin: 0; }
+
+/* Callout & Guarantee Cards */
 .ca-callout {
   background: rgba(212, 162, 76, 0.08);
   border: 1px dashed rgba(212, 162, 76, 0.4);
   border-radius: 14px;
   padding: 16px 18px;
   text-align: left;
-  max-width: 440px;
-  margin: 0 auto 28px;
+  max-width: 480px;
+  margin: 0 auto 20px;
 }
-.ca-callout strong { color: var(--gold); }
-.ca-callout p { margin: 6px 0 0; color: var(--muted); font-size: 0.9rem; }
+.ca-callout strong { color: var(--gold); display: block; margin-bottom: 4px; }
+.ca-callout p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+
+.guarantee-callout {
+  background: rgba(47, 191, 159, 0.08);
+  border: 1px solid rgba(47, 191, 159, 0.35);
+  border-radius: 14px;
+  padding: 16px 18px;
+  text-align: left;
+  max-width: 480px;
+  margin: 0 auto 20px;
+}
+.guarantee-callout strong { color: var(--accent); display: block; margin-bottom: 4px; }
+.guarantee-callout p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+
+.hesitant-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 18px;
+  max-width: 480px;
+  margin: 0 auto;
+  font-size: 0.9rem;
+  color: var(--muted);
+  text-align: center;
+}
+.hesitant-box a { color: var(--fg); font-weight: 500; text-decoration: underline; }
 
 /* ---------- Form ---------- */
 .form-card {
@@ -248,6 +312,14 @@ section { padding-block: 44px; }
   padding: 28px;
 }
 .field { margin-bottom: 16px; }
+.field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 560px) {
+  .field-grid { grid-template-columns: 1fr; }
+}
 .field label {
   display: block;
   font-size: 0.82rem;
@@ -335,16 +407,24 @@ footer .contact { color: var(--fg); font-family: 'IBM Plex Mono', monospace; }
 <div class="wrap">
 
   <section class="hero">
-    <span class="eyebrow">Finance Made Easy · Founding Cohort</span>
+    <span class="eyebrow">Finance Made Easy · Founding Cohort 1</span>
     <h1>Pay Yourself <em>First.</em></h1>
     <p class="sub">
-      Budgeting guidance, an investment strategy built around your risk appetite,
-      and a running tracker for every rupee you save and invest — for the first
-      100 members who join this cohort.
+      Tailored for working professionals — engineers, doctors, and corporate executives
+      earning Rs 100,000+ monthly — who are ready to start investing with clarity or struggle
+      to retain structured savings. Strictly limited to 10 members in Cohort 1 for hands-on,
+      1-on-1 guidance.
     </p>
     <div class="hero-cta">
       <a href="#join" class="btn btn-primary">Reserve my spot →</a>
       <a href="#offer" class="btn btn-ghost">See the offer</a>
+    </div>
+
+    <!-- Audience qualification strip -->
+    <div>
+      <div class="audience-strip">
+        <strong>Who this is for:</strong> Professionals earning <span class="highlight">Rs 100k+/month</span> who want to stop leaving money idle, eliminate monthly savings leaks, and build a personalized investment portfolio.
+      </div>
     </div>
   </section>
 
@@ -352,7 +432,7 @@ footer .contact { color: var(--fg); font-family: 'IBM Plex Mono', monospace; }
     <div class="section-head">
       <span class="eyebrow-plain">What's included</span>
       <h2>Four things most people never get around to</h2>
-      <p>Not another spreadsheet. A person and a system, working on your money together.</p>
+      <p>Not another spreadsheet. A personalized system engineered specifically around your individual financial needs and lifestyle.</p>
     </div>
     <div class="grid">
       <div class="card">
@@ -368,7 +448,7 @@ footer .contact { color: var(--fg); font-family: 'IBM Plex Mono', monospace; }
       <div class="card">
         <div class="icon">🧾</div>
         <h3>Expenditure tracker</h3>
-        <p>Log what comes in and what goes out, and see exactly where this month's budget stands — category by category, before it becomes a surprise.</p>
+        <p>Log incoming cash flows and expenses with clear visibility across necessary and discretionary spending before budget overruns occur.</p>
       </div>
       <div class="card">
         <div class="icon">🛟</div>
@@ -381,25 +461,73 @@ footer .contact { color: var(--fg); font-family: 'IBM Plex Mono', monospace; }
   <section id="offer">
     <div class="section-head">
       <span class="eyebrow-plain">The offer</span>
-      <h2>One price. One cohort. One hundred people.</h2>
+      <h2>One price. One cohort. Ten people.</h2>
     </div>
     <div class="offer">
-      <span class="cohort-badge">Cohort cap · 100 members</span>
-      <div class="price-row">
-        <span class="price">Rs 20,000</span>
-      </div>
-      <p class="price-note">one payment · covers everything below · this cohort only</p>
+      <span class="cohort-badge">Cohort cap · 10 members only</span>
 
       <ul class="offer-list">
-        <li><span class="check">✓</span><span>Personal budget guidance, built and revisited with you<span class="label-note">Not a template — your actual accommodation, utilities, fuel, food</span></span></li>
-        <li><span class="check">✓</span><span>A suggested investment strategy matched to your risk profile<span class="label-note">Equity & index, income funds, foreign currency / gold reserves</span></span></li>
-        <li><span class="check">✓</span><span>A running tracker for your expenditure, savings, and investments<span class="label-note">Always current, category by category</span></span></li>
-        <li class="bonus"><span class="check">★</span><span>First 10 members only — a free session with a Chartered Accountant<span class="label-note">A CA reviews your budgeting and expenditure, helps you find room to save, and walks through your portfolio picks. Free, only for the first 10.</span></span></li>
+        <li>
+          <span class="check">✓</span>
+          <div class="item-content">
+            <div class="item-top">
+              <strong>Personal budget guidance</strong>
+              <span class="item-price">Worth Rs 5,000</span>
+            </div>
+            <span class="label-note">Built and revisited with you — covers your actual accommodation, utilities, fuel, and lifestyle</span>
+          </div>
+        </li>
+        <li>
+          <span class="check">✓</span>
+          <div class="item-content">
+            <div class="item-top">
+              <strong>Suggested investment strategy</strong>
+              <span class="item-price">Worth Rs 5,000</span>
+            </div>
+            <span class="label-note">Matched to your risk profile across equity & index funds, income funds, and foreign currency / gold reserves</span>
+          </div>
+        </li>
+        <li>
+          <span class="check">✓</span>
+          <div class="item-content">
+            <div class="item-top">
+              <strong>Expenditure, savings & investment tracker</strong>
+              <span class="item-price">Worth Rs 5,000</span>
+            </div>
+            <span class="label-note">Always current, categorizing essential vs non-essential expenses and tracking live NAV movements</span>
+          </div>
+        </li>
+        <li class="bonus">
+          <span class="check">★</span>
+          <div class="item-content">
+            <div class="item-top">
+              <strong>Chartered Accountant (CA) 1-on-1 session</strong>
+              <span class="item-price" style="color: var(--gold);">Free bonus</span>
+            </div>
+            <span class="label-note">A CA reviews your budgeting and expenditure, helps identify rooms to save, and walks through guidance on fund selection</span>
+          </div>
+        </li>
       </ul>
 
+      <div class="price-block">
+        <div class="price-row">
+          <span class="price">Rs 15,000</span>
+        </div>
+        <p class="price-note">one payment · covers everything above · strictly for this 10-person cohort</p>
+      </div>
+
+      <div class="guarantee-callout">
+        <strong>100% Milestone Reimbursement Guarantee</strong>
+        <p>If you implement the strategy and do not achieve the milestone goals set out for your profile, you will receive a 100% full reimbursement of your fee.</p>
+      </div>
+
       <div class="ca-callout">
-        <strong>Why only 10 get the CA session</strong>
-        <p>It's a real 1-on-1 review, not a form letter — so we're keeping it to the first 10 members of the first 100, while it's still small enough to do properly.</p>
+        <strong>Why only 10 members in this cohort?</strong>
+        <p>This is a real 1-on-1 personalized review, not a generic mass template. To maintain high-touch attention and dedicate proper time to each person, slots are strictly limited to 10. Reserve now before spots fill up.</p>
+      </div>
+
+      <div class="hesitant-box">
+        Still confused or hesitant? Drop us your query at <a href="mailto:pay.yourself.first101@gmail.com">pay.yourself.first101@gmail.com</a>, and we will call or email you to answer all your questions.
       </div>
     </div>
   </section>
@@ -415,6 +543,16 @@ footer .contact { color: var(--fg); font-family: 'IBM Plex Mono', monospace; }
       <div class="field">
         <label for="lf-name">Full name</label>
         <input id="lf-name" name="name" type="text" placeholder="Your name" autocomplete="name" required>
+      </div>
+      <div class="field-grid">
+        <div class="field">
+          <label for="lf-age">Age</label>
+          <input id="lf-age" name="age" type="number" min="18" max="100" placeholder="e.g. 28" required>
+        </div>
+        <div class="field">
+          <label for="lf-profession">Profession</label>
+          <input id="lf-profession" name="profession" type="text" placeholder="e.g. Software Engineer, Doctor" required>
+        </div>
       </div>
       <div class="field">
         <label for="lf-email">Email</label>
@@ -454,12 +592,21 @@ footer .contact { color: var(--fg); font-family: 'IBM Plex Mono', monospace; }
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var name = document.getElementById('lf-name').value.trim();
+    var age = document.getElementById('lf-age').value.trim();
+    var profession = document.getElementById('lf-profession').value.trim();
     var email = document.getElementById('lf-email').value.trim();
     var phone = document.getElementById('lf-phone').value.trim();
-    if (!name || !email || !phone) return;
 
-    var subject = 'Reserve my spot — Finance Made Easy';
-    var body = 'Name: ' + name + '\nEmail: ' + email + '\nPhone: ' + phone + '\n\nI would like to reserve my spot in the founding cohort.';
+    if (!name || !email || !phone || !age || !profession) return;
+
+    var subject = 'Reserve my spot — Finance Made Easy (Cohort 1)';
+    var body = 'Name: ' + name + '\n'
+             + 'Age: ' + age + '\n'
+             + 'Profession: ' + profession + '\n'
+             + 'Email: ' + email + '\n'
+             + 'Phone: ' + phone + '\n\n'
+             + 'I would like to reserve my spot in Founding Cohort 1.';
+
     var mailto = 'mailto:pay.yourself.first101@gmail.com'
       + '?subject=' + encodeURIComponent(subject)
       + '&body=' + encodeURIComponent(body);
